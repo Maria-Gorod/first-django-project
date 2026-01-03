@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+    <div class="hero-overlay">
+        <div class="hero-content">
+            <h1>4.23 thred</h1>
+            <p>
+                Машинная вышивка на одежде — от первых стежков
+                до профессионального результата. Практика, дизайн и вдохновение.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="posts-preview">
+    <h2>Последние статьи</h2>
+
+    <div class="posts-grid">
+        {% for post in posts %}
+            <article class="post-card">
+                <img src="{% static post.image %}" alt="{{ post.title }}">
+
+                <div class="post-body">
+                    <h3>{{ post.title }}</h3>
+                    <p>{{ post.preview }}</p>
+
+                    <a href="/post/{{ post.id }}/" class="read-more">
+                        Читать →
+                    </a>
+                </div>
+            </article>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock %}

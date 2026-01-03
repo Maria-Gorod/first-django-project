@@ -1,0 +1,106 @@
+.hero {
+    min-height: 100vh;
+    background: url("../imgs/index_background.jpg") center / cover no-repeat;
+    position: relative;
+}
+
+.hero-overlay {
+    min-height: 100vh;
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.35),
+        rgba(0, 0, 0, 0.55)
+    );
+    display: grid;
+    place-items: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero-content h1 {
+    font-size: 64px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 20px;
+    max-width: 720px;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+}
+
+.posts-preview {
+    padding: 140px 80px 120px;
+}
+
+.posts-preview h2 {
+    font-size: 36px;
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.post-card {
+    background: #ffffff;
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.post-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.12);
+}
+
+.post-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.post-body {
+    padding: 28px;
+}
+
+.post-body h3 {
+    font-size: 22px;
+    margin-bottom: 14px;
+}
+
+.post-body p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 22px;
+}
+
+.read-more {
+    text-decoration: none;
+    font-weight: 600;
+    color: #1d1d1f;
+    position: relative;
+}
+
+.read-more::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 2px;
+    background: #1d1d1f;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.read-more:hover::after {
+    transform: scaleX(1);
+}

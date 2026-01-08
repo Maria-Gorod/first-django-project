@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/reviews.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="reviews-hero">
+    <h1>Отзывы клиентов</h1>
+    <p>
+        Мы ценим каждый отклик и публикуем только проверенные отзывы
+        о машинной вышивке на одежде.
+    </p>
+</section>
+
+<div class="review-form">
+    <form method="post">
+        {% csrf_token %}
+
+        <div class="form-field">
+            {{ form.full_name }}
+        </div>
+
+        <div class="form-field">
+            {{ form.email }}
+        </div>
+
+        <div class="form-field">
+            {{ form.text }}
+        </div>
+
+        <button type="submit" class="btn">
+            Отправить отзыв
+        </button>
+    </form>
+</div>
+
+<section class="reviews-list">
+
+    {% if reviews %}
+        {% for review in reviews %}
+            {% if review.is_checked %}
+            <article class="review-card">
+                <div class="review-header">
+                    <span class="review-author">{{ review.full_name }}</span>
+                    <span class="review-email">{{ review.email }}</span>
+                </div>
+
+                <div class="review-text">
+                    {{ review.text|linebreaks }}
+                </div>
+            </article>
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        <p class="no-reviews">
+            Пока нет опубликованных отзывов.
+        </p>
+    {% endif %}
+
+</section>
+
+{% endblock %}

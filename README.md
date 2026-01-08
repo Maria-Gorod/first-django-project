@@ -1,7 +1,7 @@
 # First django project
 
 ## Install
-- git clone https://github.com/Maria-Gorod/first-django-project
+- git clone https://github.com/Maria-Gorod/first-django-project.git
 - cd first-django
 - python3 -m venv venv
 - venv\Scripts\activate
